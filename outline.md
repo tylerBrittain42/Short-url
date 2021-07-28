@@ -9,9 +9,11 @@ Design docs for short url project
 ## Index
 - **GET** - Home page
 - **POST** - Create shortURL 
-## View All
-- **GET** - View-All Page
+</br></br>
 ## URL
+### View All
+- **GET** - View-All Page
+### SpecificURL
 - **GET** - Redirect to URL
 # Site Pages
 ## Home

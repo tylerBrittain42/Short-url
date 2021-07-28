@@ -1,13 +1,14 @@
 exports.get_home = function(req, res) {
-    res.send('not created yet')
+    res.render('index')
 }
 
 exports.create_url = function(req, res) {
+    console.log(req.body)
     res.send('not created yet')
 }
 
 exports.get_all = function(req, res) {
-    res.send('not created yet')
+    res.render('all')
 }
 
 exports.redirect_short_url = function(req, res) {

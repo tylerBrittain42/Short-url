@@ -3,9 +3,10 @@ const Schema = mongoose.Schema;
 
 const UrlSchema = new Schema(
     {
-        original: {type: string, required: true},
-        newURl: {type: string, required: true},
-        timesClicked: {type: Number, default: 0}
+        original: {type: String, required: true},
+        newUrl: {type: String, required: true},
+        // timesClicked: {type: Number, default: 0},
+        numeric_id: {type: Number, required:true}
     }
 )
 

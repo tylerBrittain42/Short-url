@@ -21,10 +21,9 @@ Design docs for short url project
 ## Link Profile (maybe ?)
 </br> </br> </br>
 # Plan of attack
-1. Model
-1. Routes
-1. View(Rough)
 1. Controllers
+1. Hash short urls
+1. Santize data(interchangable with final view)
 1. View (Final)
 1. Deploy(Heroku)
 </br> </br> </br>

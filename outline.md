@@ -21,11 +21,11 @@ Design docs for short url project
 ## Link Profile (maybe ?)
 </br> </br> </br>
 # Plan of attack
-1. Controllers
-1. Hash short urls
-1. Santize data(interchangable with final view)
 1. View (Final)
+1. Santize data(interchangable with final view) (express validator)
+1. 'All' controller
 1. Deploy(Heroku)
+1. Docker???
 </br> </br> </br>
 # Maybe
 1. Add profile pages

@@ -21,7 +21,12 @@
       <div class="row">
         <div class="col-sm-10" id="content">
           <h1>Error</h1>
-          <h3></h3>
+          <% if (String(error) === "TypeError: Cannot read property 'original' of undefined") { %>
+            <h3>The url entered is invalid</h3>
+          <% } else { %>
+           <h3><%= error %> </h3>
+          <% } %>
+
         </div>
       </div>
 

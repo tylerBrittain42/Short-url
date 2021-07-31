@@ -40,13 +40,19 @@ exports.get_all = function(req, res) {
 
 exports.redirect_short_url = async function(req, res) {
     
-    const query = await Url.find({newUrl:req.params.shortUrl}).
-    select('original').
-    exec().
-    catch((e) => {console.log(e)})
+    try {
+        const query = await Url.find({newUrl:req.params.shortUrl}).
+        select('original').
+        exec()
+        const destination = query[0].original
+        res.redirect('http://' + destination)
+    }
+    catch (e) {
+        res.render('error', {error:e})
+    }
 
-    const destination = query[0].original
-    res.redirect('http://' + destination)
+
+    
 
 }
 

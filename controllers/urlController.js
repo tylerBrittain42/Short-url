@@ -26,10 +26,11 @@ exports.create_url = async function(req, res) {
     newUrl.save((e) => {
         if(e){
             console.log(e)
-            res.render('error')
+            res.render('error',{error:e})
         }
         else{
-            res.render('result')
+            console.log(newUrl)
+            res.render('result', {url: newUrl.original, shortUrl:newUrl.newUrl})
         }
     })
 }

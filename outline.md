@@ -26,6 +26,7 @@ Design docs for short url project
 1. 'All' controller
 1. Deploy(Heroku)
 1. Docker???
+1. Write unit tests for end points
 </br> </br> </br>
 # Maybe
 1. Add profile pages

@@ -29,8 +29,8 @@
         <tbody>
           <% urlData.forEach(element => { %>
           <tr>
-            <td><%= element.original %> </td>
-            <td><%= element.newUrl %> </td>
+            <td> <a href="http://<%= element.original %>"><%= element.original %></a> </td>
+            <td> <a href="http://<%= host %>/url/<%= element.newUrl %>"><%= element.newUrl %></a> </td>
           </tr>
           <% }) %>
       </table>

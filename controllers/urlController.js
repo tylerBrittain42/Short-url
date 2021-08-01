@@ -29,7 +29,7 @@ exports.create_url = async function(req, res) {
             res.render('error',{error:e})
         }
         else{
-            res.render('result', {url: newUrl.original, shortUrl:newUrl.newUrl})
+            res.render('result', {url: newUrl.original, shortUrl:newUrl.newUrl,host:process.env.HOST})
         }
     })
 }
@@ -37,7 +37,7 @@ exports.create_url = async function(req, res) {
 exports.get_all = async function(req, res) {
 
     const query = await Url.find({}).select('original newUrl').exec()
-    res.render('all', {urlData:query})
+    res.render('all', {urlData:query, host:process.env.HOST})
 }
 
 exports.redirect_short_url = async function(req, res) {

@@ -12,10 +12,7 @@ const urlRouter = require('./routes/url')
 
 const app = express(); 
 
-let port = process.env.port
-if(port == null || port ==""){
-  port = 3000
-}
+
 
 // connecting to database
 mongoose.connect("mongodb+srv://" + process.env.USER + ":" + process.env.PW + "@cluster0.cvgrx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",   {useNewUrlParser: true, useUnifiedTopology: true});
@@ -33,6 +30,6 @@ app.use(express.static('public'))
 app.use('/', indexRouter)
 app.use('/url', urlRouter)
 
-app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}`)
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Listening at http://localhost:`)
   })

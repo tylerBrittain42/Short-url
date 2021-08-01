@@ -1,4 +1,6 @@
 const Url = require('../models/url')
+const {validationResult} = require('express-validator');
+
 
 exports.get_home = function(req, res) {
 
@@ -7,6 +9,14 @@ exports.get_home = function(req, res) {
 }
 
 exports.create_url = async function(req, res) {
+
+
+    console.log(validationResult(req))
+    if(!validationResult(req).isEmpty()){
+        res.redirect('/')
+        return
+    }
+
 
     //Finding the current max_id
     let maxId = await Url.find({}).

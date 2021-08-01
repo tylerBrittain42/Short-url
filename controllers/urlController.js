@@ -29,14 +29,15 @@ exports.create_url = async function(req, res) {
             res.render('error',{error:e})
         }
         else{
-            console.log(newUrl)
             res.render('result', {url: newUrl.original, shortUrl:newUrl.newUrl})
         }
     })
 }
 
-exports.get_all = function(req, res) {
-    res.render('all')
+exports.get_all = async function(req, res) {
+
+    const query = await Url.find({}).select('original newUrl').exec()
+    res.render('all', {urlData:query})
 }
 
 exports.redirect_short_url = async function(req, res) {

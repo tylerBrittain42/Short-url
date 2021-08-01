@@ -21,7 +21,6 @@ Design docs for short url project
 ## Link Profile (maybe ?)
 </br> </br> </br>
 # Plan of attack
-1. View (Final)
 1. Santize data(interchangable with final view) (express validator)
 1. 'All' controller
 1. Deploy(Heroku)

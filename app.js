@@ -14,7 +14,7 @@ const app = express();
 const port = 3000;
 
 // connecting to database
-mongoose.connect(process.env.MONGO,   {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://" + process.env.USER + ":" + process.env.PW + "@cluster0.cvgrx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",   {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set("useCreateIndex", true);
 
 app.set('views', path.join(__dirname, 'views'))

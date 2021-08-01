@@ -11,7 +11,11 @@ const indexRouter = require('./routes/index')
 const urlRouter = require('./routes/url')
 
 const app = express(); 
-const port = 3000;
+
+let port = process.env.port
+if(port == null || port ==""){
+  port = 3000
+}
 
 // connecting to database
 mongoose.connect("mongodb+srv://" + process.env.USER + ":" + process.env.PW + "@cluster0.cvgrx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",   {useNewUrlParser: true, useUnifiedTopology: true});

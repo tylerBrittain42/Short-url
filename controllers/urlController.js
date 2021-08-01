@@ -51,10 +51,7 @@ exports.redirect_short_url = async function(req, res) {
     catch (e) {
         res.render('error', {error:e})
     }
-
-
     
-
 }
 
 // followed this pseudo code 

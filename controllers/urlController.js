@@ -11,12 +11,15 @@ exports.get_home = function(req, res) {
 exports.create_url = async function(req, res) {
 
 
-    console.log(validationResult(req))
     if(!validationResult(req).isEmpty()){
         res.redirect('/')
         return
     }
 
+    if(req.body.long_link.includes('http://') || req.body.long_link.includes('https://')){
+        req.body.long_link = req.body.long_link.replace("https://","")
+        req.body.long_link = req.body.long_link.replace("http://","")
+    }
 
     //Finding the current max_id
     let maxId = await Url.find({}).

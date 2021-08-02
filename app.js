@@ -5,7 +5,6 @@ const ejs = require('ejs')
 const path = require('path')
 const mongoose = require('mongoose')
 const compression = require('compression')
-const helmet = require('helmet')
 
 const indexRouter = require('./routes/index')
 const urlRouter = require('./routes/url')
@@ -24,7 +23,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json()) 
 
 app.use(compression())
-app.use(helmet())
 
 app.use(express.static('public'))
 

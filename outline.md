@@ -29,7 +29,6 @@ Design docs for short url project
 - Need to complete
 - Will consist of essentially same information as read me
 # Need to complete
-1. Clean code
 1. About page (static html)
 1. Write code to double check if a url has already been saved
 

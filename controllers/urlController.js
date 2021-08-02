@@ -69,6 +69,10 @@ exports.redirect_short_url = async function(req, res) {
     
 }
 
+exports.get_about = function(req, res){
+    res.render('about')
+}
+
 // Used the link below as a guide
 // https://stackoverflow.com/questions/742013/how-do-i-create-a-url-shortener?answertab=votes#tab-top
 function base62(id){

@@ -9,4 +9,6 @@ router.post('/',
             body('long_link').isURL().trim(), 
             url_controller.create_url)
 
+router.get('/about', url_controller.get_about)
+
 module.exports = router

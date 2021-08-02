@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View All</title>
+    <title>Short Urls</title>
 
     <link
       rel="stylesheet"
@@ -16,24 +16,15 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    
-    <%- include ('partials/header') %>
+    <%- include ('partials/header') %> 
     <div class="container-sm">
-      <table id="example" class="display" style="width: 100%">
-        <thead>
-          <tr>
-            <th>Original Url</th>
-            <th>Shortend Url</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% urlData.forEach(element => { %>
-          <tr>
-            <td> <a href="http://<%= element.original %>"><%= element.original %></a> </td>
-            <td> <a href="http://<%= host %>/url/<%= element.newUrl %>">http://<%= host%>/url/<%= element.newUrl %></a></td>
-          </tr>
-          <% }) %>
-      </table>
+      <div class="row">
+        <div class="col-sm-10" id="content">
+          <h1>Short Urls</h1>
+            
+        </div>
+      </div>
+
     </div>
 
     <script
@@ -46,18 +37,5 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-
-
-    <script>
-      $(document).ready(function() {
-      $('#example').DataTable();
-      } )
-    </script>
-
-
   </body>
 </html>

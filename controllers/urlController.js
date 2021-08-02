@@ -21,6 +21,14 @@ exports.create_url = async function(req, res) {
         req.body.long_link = req.body.long_link.replace("http://","")
     }
 
+    // Checks to see if the req long_link has already been shortened
+    // If so, render result page with already existing db entry
+    let doesExist = await Url.findOne({original:req.body.long_link}).exec()
+    if(doesExist !== null){
+        res.render('result', {url: doesExist.original, shortUrl:doesExist.newUrl,host:process.env.HOST})
+        return
+    }
+
     //Finding the current max_id
     let maxId = await Url.find({}).
     select('numeric_id').

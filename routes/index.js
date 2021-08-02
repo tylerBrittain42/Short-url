@@ -1,8 +1,8 @@
 const { body } = require('express-validator');
+const url_controller = require('../controllers/urlController')
 const express = require('express')
 const router = express.Router()
 
-const url_controller = require('../controllers/urlController')
 
 router.get('/', url_controller.get_home)
 router.post('/', 

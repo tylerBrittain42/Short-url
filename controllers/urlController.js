@@ -3,19 +3,18 @@ const {validationResult} = require('express-validator');
 
 
 exports.get_home = function(req, res) {
-
     res.render('index')
-
 }
 
 exports.create_url = async function(req, res) {
 
-
+    // Triggers if req is not a valid url
     if(!validationResult(req).isEmpty()){
         res.redirect('/')
         return
     }
 
+    // Removes http and https from the url before it is stored in the database
     if(req.body.long_link.includes('http://') || req.body.long_link.includes('https://')){
         req.body.long_link = req.body.long_link.replace("https://","")
         req.body.long_link = req.body.long_link.replace("http://","")
@@ -28,6 +27,8 @@ exports.create_url = async function(req, res) {
     limit(1).
     exec()
 
+    // If the database is empty, set numeric_id to 0
+    // else set to maxId + 1
     const numeric_id = ((maxId < 1) ? 0 : (maxId[0].numeric_id + 1))
 
     const newUrl = new Url({
@@ -68,7 +69,7 @@ exports.redirect_short_url = async function(req, res) {
     
 }
 
-// followed this pseudo code 
+// Used the link below as a guide
 // https://stackoverflow.com/questions/742013/how-do-i-create-a-url-shortener?answertab=votes#tab-top
 function base62(id){
 
@@ -90,7 +91,7 @@ function base62(id){
     return newUrl
 }
 
-//converts a base 62 number to a short url
+//converts base62 array to a short url
 function toShort(numeric_id) {
     
     const base62_id = base62(numeric_id)
@@ -102,5 +103,4 @@ function toShort(numeric_id) {
     });
 
     return shortUrl
-
 }

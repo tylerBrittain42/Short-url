@@ -1,5 +1,6 @@
 const Url = require('../models/url')
 const {validationResult} = require('express-validator');
+const base62 = require('./base62')
 
 
 exports.get_home = function(req, res) {
@@ -33,7 +34,7 @@ exports.create_url = async function(req, res) {
 
     const newUrl = new Url({
         original:req.body.long_link,
-        newUrl: toShort(numeric_id),
+        newUrl: base62.toShort(numeric_id),
         numeric_id: numeric_id
     })
 
@@ -73,38 +74,3 @@ exports.get_about = function(req, res){
     res.render('about')
 }
 
-// Used the link below as a guide
-// https://stackoverflow.com/questions/742013/how-do-i-create-a-url-shortener?answertab=votes#tab-top
-function base62(id){
-
-    let newUrl = []
-    let remainder = 0
-
-    while(id > 0){
-        remainder = id % 62
-        newUrl.push(remainder)
-        id = Math.floor(id / 62)
-    }
-
-    // Adds additional empty elements to ensure a 3 digit value
-    while(newUrl.length < 3){
-        newUrl.push(0)
-    }
-    newUrl.reverse()
-    
-    return newUrl
-}
-
-//converts base62 array to a short url
-function toShort(numeric_id) {
-    
-    const base62_id = base62(numeric_id)
-    const key = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    let shortUrl = ''
-
-    base62_id.forEach(element => {
-        shortUrl += key[element]
-    });
-
-    return shortUrl
-}

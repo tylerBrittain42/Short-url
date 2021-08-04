@@ -1,5 +1,5 @@
 # Short Urls
-https://afternoon-taiga-15372.herokuapp.com/
+https://tylers-short-urls.herokuapp.com/
 
 An url shortening service by Tyler Brittain. 
 # About the project

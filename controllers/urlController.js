@@ -38,7 +38,12 @@ exports.create_url = async function(req, res) {
 
     // If the database is empty, set numeric_id to 0
     // else set to maxId + 1
-    const numeric_id = ((maxId < 1) ? 0 : (maxId[0].numeric_id + 1))
+    let numeric_id = ((maxId < 1) ? 0 : (maxId[0].numeric_id + 1))
+    
+    // confusion between 'all' page and a-l-l url
+    // to avoid, just iterate past 693
+    if (numeric_id === 693)
+        numeric_id++
 
     const newUrl = new Url({
         original:req.body.long_link,
